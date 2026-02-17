@@ -38,7 +38,15 @@ const MenuProps = {
   },
 };
 
-const names = ["Home", "Settings", "Excel Template", "Table Names"];
+const names = [
+  "Home",
+  "Settings",
+  "Excel Template",
+  "Table Names",
+  "Traceability",
+];
+
+console.log("names", names);
 
 export default function Settings({ triggerPopup }) {
   const [shift_time, setShift_time] = useState({
@@ -138,7 +146,7 @@ export default function Settings({ triggerPopup }) {
         return temp;
       });
     },
-    [shift]
+    [shift],
   );
 
   const debouncedCheck = useCallback(
@@ -153,7 +161,7 @@ export default function Settings({ triggerPopup }) {
         }
       }
     }, 500),
-    []
+    [],
   );
 
   const handleAddRow = () => {
@@ -167,8 +175,8 @@ export default function Settings({ triggerPopup }) {
   const handleEmailChange = (id, value) => {
     setEmails(
       emails.map((email) =>
-        email.id === id ? { ...email, address: value } : email
-      )
+        email.id === id ? { ...email, address: value } : email,
+      ),
     );
   };
 
@@ -183,7 +191,7 @@ export default function Settings({ triggerPopup }) {
       },
       { accessorKey: "page", header: "page" },
     ],
-    []
+    [],
   );
 
   const handleEdit = (row) => {
@@ -371,7 +379,7 @@ export default function Settings({ triggerPopup }) {
                       />
                     </Grid>
                   </Grid>
-                )
+                ),
             )}
           </Grid>
         </CardContent>
@@ -584,7 +592,7 @@ export default function Settings({ triggerPopup }) {
                 fullWidth
               />
 
-              <Typography sx={{ color : "red" }}>
+              <Typography sx={{ color: "red" }}>
                 {getExeUser === "Exists"
                   ? "This username Already Assigned"
                   : ""}

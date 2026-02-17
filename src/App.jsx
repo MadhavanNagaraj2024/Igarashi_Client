@@ -9,14 +9,7 @@ import ExcelEdit from "./Pages/ExcelTemplate";
 import { useState } from "react";
 import Popup from "./Pages/Popup";
 import Tablenames from "./Pages/Tablenames";
-// import { Login } from "@mui/icons-material";
-// import LoginPage from "./pages/login/LoginPage";
-// import DashBoardPage from "./pages/dashboard/DashBoardPage";
-// import Flats from "./pages/flats/Flats";
-// import Visitors from "./pages/visitors/Visitors";
-// import NoPage from "./pages/nopage/NoPage";
-
-// import LoginRoleAuthGuard from "./components/auth/LoginRoleAuthGuard";
+import Traceability from "./Pages/Traceability";
 
 function App() {
   const [popup, setPopup] = useState({
@@ -33,19 +26,15 @@ function App() {
       <Routes>
         <Route index element={<Login triggerPopup={triggerPopup} />} />
         <Route path="/" element={<MainLayout />}>
-          {/* <Route
-            // path="/admin"
-            element={
-              <LoginRoleAuthGuard allowedRoles={["Admin", "Security"]} />
-            }
-          > */}
-          {/* <Route index element={<DashBoardPage />}></Route> */}
-          {/* <Route path="flats" element={<Flats />}></Route> */}
-          {/* <Route path="*" element={<NoPage />} /> */}
+         
           <Route path="/home" element={<Home triggerPopup={triggerPopup} />} />
           <Route
             path="/register"
             element={<RegistrationForm triggerPopup={triggerPopup} />}
+          />
+          <Route
+            path="/traceability"
+            element={<Traceability triggerPopup={triggerPopup} />}
           />
           <Route
             path="/settings"
@@ -57,21 +46,11 @@ function App() {
           />
           <Route
             path="/tablenames"
-            // element={<ExcelEdit triggerPopup={triggerPopup} />}
             element={<Tablenames triggerPopup={triggerPopup} />}
           />
         </Route>
 
-        {/* </Route> */}
-        {/* <Route path="/login" element={<LoginPage />}></Route> */}
-        {/* <Route
-          // path="/admin"
-          element={<LoginRoleAuthGuard allowedRoles={["Security"]} />}
-        >
-            <Route index element={<DashBoardPage />}></Route>
-            <Route path="flats" element={<Flats />}></Route>
-          <Route path="/login" element={<LoginPage />}></Route>
-        </Route> */}
+      
       </Routes>
       {popup.open && (
         <Popup

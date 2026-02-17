@@ -10,6 +10,11 @@ export const sideMenu = [
     to: "/home",
   },
   {
+    label: "Traceability",
+    Icon: TableViewIcon,
+    to: "/traceability",
+  },
+  {
     label: "Settings",
     Icon: SettingsIcon,
     to: "/settings",
